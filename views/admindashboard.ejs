@@ -1,0 +1,63 @@
+<h2 class="text-center">Admin Dashboard - Users</h2>
+<div class="row">
+    <div class="col col-lg-8 m-auto">
+        <%- include ('partials/adminnav') %>
+    </div>
+</div>
+
+
+<% if(ausers) {%>
+    <div class="row">
+        <div class="col col-lg-2 m-auto">
+            <strong>Full Name</strong>
+        </div>
+        <div class="col col-lg-2 m-auto">
+            <strong>Email</strong>
+        </div>
+        <div class="col col-lg-2 m-auto">
+            <strong>Is Admin</strong>
+        </div>
+        <div class="col col-lg-2 m-auto">
+            <strong>Date Ctreated</strong>
+        </div>
+        <div class="col col-lg-2 m-auto">
+            <strong>Make Admin</strong>
+        </div>
+        <div class="col col-lg-2 m-auto">
+            <strong>Delete User</strong>
+        </div>
+    </div>
+    <% ausers.forEach(auser => {%>
+        <div class="row">
+            <div class="col col-lg-2 m-auto">
+                <p><%= auser.fullName%></p>
+            </div>
+            <div class="col col-lg-2 m-auto">
+                <p><%= auser.email%></p>
+            </div>
+            <div class="col col-lg-2 m-auto">
+                <p><%= auser.isAdmin%></p>
+            </div>
+            <div class="col col-lg-2 m-auto">
+                <p><%= auser.dateCreated%></p>
+            </div>
+            <div class="col col-lg-2 m-auto">
+                <p>
+                    <% if(auser.isAdmin) {%>
+                        <a  onclick="window.location='/remove/<%= auser._id %>';" style="cursor: pointer; color: blue;" >
+                            Already Admin</a>
+                      <% } else {%>
+                    <a  onclick="window.location='/admin/<%= auser._id %>';" style="cursor: pointer; color: blue;" >
+                        <i class="material-icons">check_circle</i></a>
+                        <% } %>
+                </p>
+            </div>
+            <div class="col col-lg-2 m-auto">
+                <p>
+                        <a  onclick="window.location='/delete/<%= auser._id %>';" style="cursor: pointer; color: blue;" >
+                            <i class="material-icons">delete_forever</i></a>
+                </p>
+            </div>
+        </div>
+    <% }) %>
+<% } %>

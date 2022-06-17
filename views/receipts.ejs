@@ -1,0 +1,20 @@
+<h2 class="text-center">My Dashboard - My receipts</h2>
+<% if(event) {%>
+    <div class="row">
+        <div class="col col-lg-8 m-auto">
+            <div class="card card-body">
+                <p class="text-center">*****************************************************
+                    ***********************************************************************</p>
+                <h6 class="text-center">Event Receipt</h6>
+                <hr>
+                <h4 class="text-center">Product: <%= event.title %></h4>
+                <hr>
+                <h4 class="text-center">TOTAL AMOUNT //=</h4>
+                <h2 class="text-center"><strong>KSH. <%= event.price %> //=</strong></h2>
+                <hr>
+                <p class="text-center">*****************************************************
+                    ***********************************************************************</p>
+            </div>
+        </div>
+    </div>
+    <% } %>
